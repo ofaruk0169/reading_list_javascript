@@ -1,16 +1,13 @@
-const bookList = document.querySelector('#book-list');
+const list = document.querySelector('#book-list ul');
 
-bookList.previousElementSibling.querySelector('p').innerHTML += '<br />The coolest bookshelf'
+list.addEventListener('click', function(e) {
+    //when we click on the ul, if the target has the class name of 'delete' then we do something
 
-var btns = document.querySelectorAll('#book-list .delete');
+    if(e.target.className == 'delete') {
 
-Array.from(btns).forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-
+        //the button that we clicked's parent element
         const li = e.target.parentElement;
-
-        //go up one node in order to remove the child (which is the element we're looking at)
-        li.parentNode.removeChild(li);
-
-    });
-})
+        //remove the child of this node, which is the li (as the parent is the ul which was defined first)
+        list.removeChild(li);
+    }
+});
