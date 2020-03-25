@@ -43,3 +43,19 @@ addForm.addEventListener('submit', function(e) {
     //the ul was defined earlier and we need to append the created li element
     list.appendChild(li);
 })
+
+//hide books
+
+//firstly grab the id for the checkbox 
+const hideBox = document.querySelector('#hide');
+
+//add a 'change' event listener, the function uses the 'checked' function that comes with the checkbox. If 'checked' we do one thing, display nothing.
+//Else we dispaly the 'initial' value, 'blocked' also works
+hideBox.addEventListener('change', function(e) {
+    if(hideBox.checked) {
+        list.style.display = "none";
+    } else {
+        list.style.display = "initial";
+    }
+
+})
